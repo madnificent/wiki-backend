@@ -69,7 +69,7 @@
 (define-resource article ()
   :class (s-prefix "schema:Article")
   :properties `((:body :string ,(s-prefix "schema:articleBody"))
-                (:headline :string ,(s-prefix "schema:headline")))
+                (:title :string ,(s-prefix "schema:headline")))
   :resource-base (s-url "http://wiki.semte.ch/articles/")
   :on-path "articles")
 
