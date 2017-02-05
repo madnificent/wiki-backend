@@ -23,7 +23,7 @@ defmodule Dispatcher do
   # end
 
   match "/articles/*path" do
-    Proxy.forward conn, path, "http://resource/articles"
+    Proxy.forward conn, path, "http://resource/articles/"
   end
 
   match _ do
