@@ -70,6 +70,16 @@
   :class (s-prefix "schema:Article")
   :properties `((:body :string ,(s-prefix "schema:articleBody"))
                 (:title :string ,(s-prefix "schema:headline")))
+  :has-many `((topic :via ,(s-prefix "ext:hasTopic")
+                     :as "topics"))
   :resource-base (s-url "http://wiki.semte.ch/articles/")
   :on-path "articles")
 
+(define-resource topic ()
+  :class (s-prefix "ext:Topic")
+  :properties `((:title :string ,(s-prefix "dct:title")))
+  :has-many `((article :via ,(s-prefix "ext:hasTopic")
+                       :inverse t
+                       :as "articles"))
+  :resource-base (s-url "http://wiki.semte.ch/topics/")
+  :on-path "topics")
